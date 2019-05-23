@@ -18,7 +18,13 @@ class Session
 	end
 
 	def update_score(score)
-		@record.push score.to_f
+		if @record.last
+			difference = (score.to_i - @record.last).to_s
+		else
+			difference = "n/a"
+		end
+		@record.push score.to_i
+		"**Latest SR:** #{score} **Difference:** #{difference}"
 	end
 
 	def overall_score
@@ -53,7 +59,8 @@ class Session
 			differential = @record.each_cons(2).map{|a, b| b - a}
 			wins = differential.select{|d| d > 0}.count
 			losses = differential.select{|d| d < 0}.count
-			"#{wins} wins, #{losses} losses"
+			ties = differential.select{|d| d == 0}.count
+			"#{pluralize(wins,"win")}, #{pluralize(losses, "loss", "losses")}, #{pluralize(ties, "tie")}"
 		end
 	end
 
@@ -66,6 +73,17 @@ class Session
 	end
 
 	private
+		def pluralize(n, singular, plural = nil)
+			# https://stackoverflow.com/questions/2446156/is-there-a-pluralize-function-in-ruby-not-rails
+			if n == 1
+				"#{n} #{singular}"
+			elsif plural
+				"#{n} #{plural}"
+			else
+				"#{n} #{singular}s"
+			end
+		end
+
 	  def formatted_duration(total_seconds)
 	    hours = total_seconds / (60 * 60)
 	    minutes = (total_seconds / 60) % 60
