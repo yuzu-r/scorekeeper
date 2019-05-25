@@ -18,13 +18,17 @@ class Session
 	end
 
 	def update_score(score)
-		if @record.last
-			difference = (score.to_i - @record.last).to_s
+		if invalid_score?(score)
+			"Score should be all digits."
 		else
-			difference = "n/a"
+			if @record.last
+				difference = (score.to_i - @record.last).to_s
+			else
+				difference = "n/a"
+			end
+			@record.push score.to_i
+			"**Latest SR:** #{score} **Difference:** #{difference}"
 		end
-		@record.push score.to_i
-		"**Latest SR:** #{score} **Difference:** #{difference}"
 	end
 
 	def overall_score
@@ -90,5 +94,9 @@ class Session
 	    seconds = total_seconds % 60
 
 	    "#{ hours } h #{ minutes } m #{ seconds } s"
+  	end
+
+  	def invalid_score?(score)
+    	/\D/ === score
   	end
 end

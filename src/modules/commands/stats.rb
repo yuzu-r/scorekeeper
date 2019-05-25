@@ -2,7 +2,7 @@ module Bot::DiscordCommands
   module Stats
     extend Discordrb::Commands::CommandContainer
     command(:stats) do |event|
-      session = Bot::Sessions[event.server.id]
+      session = Bot::Sessions[event.server.id][event.channel.id]
   		event.respond session.stats
       return
     end
