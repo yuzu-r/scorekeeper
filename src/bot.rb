@@ -2,8 +2,6 @@
 require 'discordrb'
 require 'bundler/setup'
 require_relative 'classes/session'
-require 'chronic'
-require 'tzinfo'
 
 # The main bot module.
 module Bot

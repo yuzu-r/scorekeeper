@@ -1,8 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    chronic (0.10.2)
-    concurrent-ruby (1.1.5)
     discordrb (3.3.0)
       discordrb-webhooks (~> 3.3.0)
       ffi (>= 1.9.24)
@@ -32,8 +30,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    tzinfo (2.0.0)
-      concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
@@ -46,9 +42,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  chronic (~> 0.10.2)
   discordrb (~> 3.3.0)
-  tzinfo
 
 RUBY VERSION
    ruby 2.3.1p112
