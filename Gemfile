@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.5.5'
 
 #run bundle update to install everything
 #run your bot with bundle exec ruby bot.rb (or whatever your main bot file is named)
