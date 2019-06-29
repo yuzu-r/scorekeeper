@@ -6,6 +6,5 @@ ruby '2.3.1'
 #run your bot with bundle exec ruby bot.rb (or whatever your main bot file is named)
 
 gem 'discordrb', '~>3.3.0'
-gem 'mongo', '~> 2.4.3'
 gem 'chronic', '~> 0.10.2'
 gem 'tzinfo'
